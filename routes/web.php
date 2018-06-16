@@ -18,8 +18,8 @@ Route::get('/about','FrontController@about')->name('about');
 Route::get('/contact','FrontController@contact')->name('contact');
 
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function () {
-    Route::get('/home', 'HomeController@index')->name('admin.home');
 
     Route::resource('candyP', 'CandyPointController')->names([
         'index' => 'candy2',
