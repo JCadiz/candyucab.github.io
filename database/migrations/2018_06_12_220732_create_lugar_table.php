@@ -17,7 +17,7 @@ class CreateLugarTable extends Migration
             $table->integer('id');
             $table->string('nombre');
             $table->string('tipo');
-            $table->integer('fk_lugar')->unsigned();
+            $table->integer('fk_lugar')->unsigned()->nullable();
             $table->foreign('fk_lugar')->references('id')->on('lugar');
             $table->timestamps();
         });

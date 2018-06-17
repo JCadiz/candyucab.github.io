@@ -18,6 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('fk_natural')->unsigned();
+            $table->foreign('fk_natural')->references('id')->on('natural');
+            $table->integer('fk_juridico')->unsigned();
+            $table->foreign('fk_juridico')->references('id')->on('juridico');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,0 +1,88 @@
+﻿insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Chupetas Rimbombin',
+	'El famoso caramelo con palo ideado por Enric Bernat en 1958 sigue de actualidad en nuestros días. Personajes como Johan Cruyff, Rivaldo, Harrison Ford o Jorge Lorenzo han protagonizado campañas o se les ha visto en publico saboreando Chupetas Rimbombin. El logo de Chupetas Rimbombin que
+	conocemos hoy en día fue rediseñado por Salvador Paluiski en 1980, envolviendolo con la forma de margarita que conocemos. Hoy en día, además de los clásicos, también podemos encontrarlos rellenos de chicle, de chocolate y en formato sin azúcar.',
+	'rimbombin.jpg',
+	250
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Ricolin',
+	'Los primeros Ricolin se fabricaron en la década de 1990, como supresores de la tos. Hoy en día Ricolin es la marca líder en el segmento de los caramelos de bolsillo
+	en Venezuela. A sus sabores clásicos mentolados y cítricos ahora añaden sabores frutales como fresa y lima en formato con y sin azúcar, y todos con contenido en vitamina C.',
+	'ricolin.jpg',
+	100
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Los Firi Firi',
+	'Se introducen en el mercado en 1994, teniendo como objetivo un público adulto. Son pastillas que proporcionan frescura, y en ello basan sus campañas publicitarias. Desde el
+	año 1994 hasta hoy hemos visto cantidad de campañas divertidas de firi firi siempre basadas en su slogan “sin firi firi no hay beso”. A partir de los primeros firi firi tabs de
+	sabor menta, han ido apareciendo nuevos sabores,todos sin azúcar.',
+	'firi.jpg',
+	50
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Chupetas de Corazón',
+	'En el año 2005 decidimos apostar; gracias al éxito del caramelo Ricura; a la combinación del dulce y picante, por eso se crean unas chupetas en forma de
+	corazón que tienen aspecto sutil pero es el resultado de combinar un suave sabor de fresa con polvo efervescente picante.',
+	'chupetacorazon.jpg',
+	150
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Los Pirulitos',
+	'Son caramelos blandos que reciben su nombre por la forma alargada con la que se presentan. Tradicionalmente eran de sabor fresa, a los que más tarde
+	se añadieron el sabor naranja y el cola, a los que ahora se añaden los de melocotón, patilla y manzana.',
+	'pirulito.jpg',
+	90
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Ricura',
+	'Se introducen en el mercado en el año 2002 como una edición especial, por su particular combinación de sabores, tanto fue el éxito que son parte de la producción actual de la
+	fábrica. Es una bola de caramelo picante con centro de chicle. Permanecen dentro del Top 10 a nivel nacional y está entre los favoritos a nivel internacional.',
+	'ricura.jpg',
+	125
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'El Original',
+	'El caramelo balsámico de Candy UCAB. Un producto clásico de confitería adulta, que aúna un sabor refrescante y agradable con el efecto de aliviar la irritación de
+	garganta y despejar las vías respiratorias. Candy UCAB los comercializa con y sin azúcar. Elaborados a partir de Menta Piperita, la variedad de menta más refrescante, están
+	disponibles en varios sabores: menta fresca, eucalipto, miel y mentol, limón y melisa, naranja y limón fresh con xylitol.',
+	'eloriginal.jpg',
+	100
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Dulcin',
+	'La receta original es procedente de España del año 1961, pero Candy hizo una adaptación de la receta con productos locales (venezolanos) son los
+	caramelos blandos más conocidos de Candy UCAB, con los que muchos nos iniciamos en el mundo de los caramelos. Son caramelos masticables de forma cuadrada y muy coloridos, asociando
+	cada color a un sabor correspondiente, siendo estos fresa, piña, limón, naranja y cereza.',
+	'dulcin.jpg',
+	140
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Choco Candy',
+	'Los primeros caramelos Choco se fabricaron en una pequeña confitería de Valencia en la década de los 80, eran pequeñas pastillas de café con leche a las que se les
+	atribuían efectos positivos para combatir resfriados. Candy en el año 2005 adaptó la receta agregando un ingrediente especial (el chocolate). Hoy en día los
+	caramelos Choco son líderes en caramelos de chocolate, y cuenta con una amplia variedad de sabores: tradicional, café expresso, capuccino, fresas con nata, menta, nata y mousse de
+	limón todos con base de chocolate.',
+	'chococandy.jpg',
+	140
+);
+
+insert into pruebas(nombre,descripcion,imagen,precio)values(
+	'Blue',
+	'Al término de la guerra civil, Javier Ramírez regresó a Navarra tras un exilio en Francia. Fue entonces cuando inventó un caramelo que hoy día sigue siendo un éxito en España y en el mundo, el caramelo
+	de piñones de la fábrica El Caserío. En El Caserío de Tafalla siguen produciendo sus caramelos de forma casi artesanal, siempre con productos naturales. Hoy en
+	día su variedad es muy amplia, además del caramelo de piñones tienen disponibles otros de cremas, pastillas de café con leche, caramelos ligeros, toffers, caramelos de chocolate con piñones, caramelos de cortesía e incluso un caramelo especial
+	con el que colaboran en la lucha contra el Alzheimer. Candy para el 2007 hizo la tropicalización de la receta y creo Blue un caramelo de café con centro de arequipe.',
+	'blue.jpg',
+	170
+);
+
+

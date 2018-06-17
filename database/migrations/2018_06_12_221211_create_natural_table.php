@@ -17,8 +17,10 @@ class CreateNaturalTable extends Migration
             $table->increments('id');
             $table->string('rif');
             $table->integer('cedula');
-            $table->string('nombre');
-            $table->string('apellido');
+            $table->string('Pnombre');
+            $table->string('Snombre');
+            $table->string('Papellido');
+            $table->string('Sapellido');
             $table->integer('fk_lugar')->unsigned();
             $table->foreign('fk_lugar')->references('id')->on('lugar');
             $table->timestamps();
