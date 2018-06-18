@@ -84,3 +84,31 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::post('email', 'FrontController@send')->name('send.email');
+
+Route::group(['prefix' => 'natural'], function () {
+  Route::get('/login', 'NaturalAuth\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'NaturalAuth\LoginController@login');
+  Route::post('/logout', 'NaturalAuth\LoginController@logout')->name('logout');
+
+  Route::get('/register', 'NaturalAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('/register', 'NaturalAuth\RegisterController@register');
+
+  Route::post('/password/email', 'NaturalAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+  Route::post('/password/reset', 'NaturalAuth\ResetPasswordController@reset')->name('password.email');
+  Route::get('/password/reset', 'NaturalAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+  Route::get('/password/reset/{token}', 'NaturalAuth\ResetPasswordController@showResetForm');
+});
+
+Route::group(['prefix' => 'juridico'], function () {
+  Route::get('/login', 'JuridicoAuth\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'JuridicoAuth\LoginController@login');
+  Route::post('/logout', 'JuridicoAuth\LoginController@logout')->name('logout');
+
+  Route::get('/register', 'JuridicoAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('/register', 'JuridicoAuth\RegisterController@register');
+
+  Route::post('/password/email', 'JuridicoAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+  Route::post('/password/reset', 'JuridicoAuth\ResetPasswordController@reset')->name('password.email');
+  Route::get('/password/reset', 'JuridicoAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+  Route::get('/password/reset/{token}', 'JuridicoAuth\ResetPasswordController@showResetForm');
+});

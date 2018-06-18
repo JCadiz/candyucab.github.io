@@ -36,6 +36,16 @@ return [
     */
 
     'guards' => [
+        'juridico' => [
+            'driver' => 'session',
+            'provider' => 'juridicos',
+        ],
+
+        'natural' => [
+            'driver' => 'session',
+            'provider' => 'naturals',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -65,6 +75,16 @@ return [
     */
 
     'providers' => [
+        'juridicos' => [
+            'driver' => 'eloquent',
+            'model' => App\Juridico::class,
+        ],
+
+        'naturals' => [
+            'driver' => 'eloquent',
+            'model' => App\Natural::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -92,6 +112,18 @@ return [
     */
 
     'passwords' => [
+        'juridicos' => [
+            'provider' => 'juridicos',
+            'table' => 'juridico_password_resets',
+            'expire' => 60,
+        ],
+
+        'naturals' => [
+            'provider' => 'naturals',
+            'table' => 'natural_password_resets',
+            'expire' => 60,
+        ],
+
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',

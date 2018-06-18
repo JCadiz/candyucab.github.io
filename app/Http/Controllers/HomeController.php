@@ -48,6 +48,10 @@ class HomeController extends Controller
                 $saludo = 'bienvenido dueño';
                 return view('home', compact('saludo'));
             break;
+            default:
+                $saludo = 'bienvenido Cliente';
+                return view('home', compact('saludo'));
+            break;
         }
 
     }

@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNaturalTable extends Migration
+class CreateJuridicosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +12,19 @@ class CreateNaturalTable extends Migration
      */
     public function up()
     {
-        Schema::create('natural', function (Blueprint $table) {
+        Schema::create('juridicos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->string('rif');
-            $table->integer('cedula');
-            $table->string('Pnombre');
-            $table->string('Snombre');
-            $table->string('Papellido');
-            $table->string('Sapellido');
+            $table->string('paginaWeb');
+            $table->integer('capital');
+            $table->string('denominacion');
+            $table->string('razonSocial');
             $table->integer('fk_lugar')->unsigned();
             $table->foreign('fk_lugar')->references('id')->on('lugar');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -34,6 +36,6 @@ class CreateNaturalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('natural');
+        Schema::drop('juridicos');
     }
 }

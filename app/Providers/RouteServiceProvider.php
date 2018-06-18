@@ -39,7 +39,49 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapJuridicoRoutes();
+
+        $this->mapNaturalRoutes();
+
         //
+    }
+
+    /**
+     * Define the "natural" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapNaturalRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'natural', 'auth:natural'],
+            'prefix' => 'natural',
+            'as' => 'natural.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/natural.php');
+        });
+    }
+
+    /**
+     * Define the "juridico" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapJuridicoRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'juridico', 'auth:juridico'],
+            'prefix' => 'juridico',
+            'as' => 'juridico.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/juridico.php');
+        });
     }
 
     /**

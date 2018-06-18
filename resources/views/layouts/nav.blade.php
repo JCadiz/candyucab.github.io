@@ -9,7 +9,7 @@
 
                             <!-- Logo Empresa -->
                                 <div class="top_logo">
-                                    <a href="{{ route('home')}}"><img src="{{asset('img/logo.jpg') }}" width="95px" height="95px"></a>
+                                    <a href="{{ url('/')}}"><img src="{{asset('img/logo.jpg') }}" width="95px" height="95px"></a>
                                 </div>
 
 
@@ -29,7 +29,7 @@
 
                                     <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                         <ul class="navbar-nav animated" id="nav">
-                                            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                                             <li class="nav-item"><a class="nav-link" href="{{ route('novedades') }}">Novedades</a></li>
                                             <li class="nav-item"><a class="nav-link" href="{{ route('tienda') }}">Tienda</a></li>
                                             <li class="nav-item"><a class="nav-link" href="{{ route('promociones') }}">Promociones</a></li>
@@ -38,8 +38,20 @@
                                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                  Ingrese</a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                   <a class="nav-link" href="{{ route('login') }}"> Login</a>
-                                                   <a class="nav-link" href="{{ route('register') }}"> Register</a>
+                                                   <a class="nav-link" href="{{ url('/login') }}"> Login</a>
+                                                    @if (Auth::guest())
+                                                    <a class="nav-link" href="{{ url('/natural/login') }}">Login Natural</a>
+                                                    <a class="nav-link" href="{{ url('/juridico/login') }}">Login Juridico</a>
+                                                    @endif
+                                                </div>
+                                            </li>
+                                            <li class="dropdown nav-item">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                 Registrese</a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <a class="nav-link" href="{{ url('/register') }}"> Register</a>
+                                                    <a class="nav-link" href="{{ url('/natural/register') }}">Registro Natural</a>
+                                                    <a class="nav-link" href="{{ url('/juridico/register') }}">Registro Juridico</a>
                                                 </div>
                                             </li>
                                             @else
@@ -48,11 +60,17 @@
                                                 {{ Auth::user()->name }}
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                <a class="dropdown-item" href="{{ url('/logout') }}"
                                                     onclick="event.preventDefault();document.getElementById('logout').submit();">
                                                     Logout</a>
                                                 <form action="{{ route('logout') }}" id="logout" method="post">
                                                     {!! csrf_field() !!}
+                                                </form>
+                                                <a class="dropdown-item" href="{{ url('/natural/logout') }}"
+                                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                 Logout Natural</a>
+                                                <form id="logout-form" action="{{ url('/natural/logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
                                                 </form>
                                                 </div>
                                             </li>
