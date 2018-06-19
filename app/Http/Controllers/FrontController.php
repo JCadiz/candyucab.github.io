@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Mail\OrderShipped;
 use Mail;
@@ -16,6 +17,22 @@ class FrontController extends Controller
     public function home(){
 
         return view('web.index');
+    }
+
+      /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function cart($id){
+        $items = Prueba::find($id);
+        return view('web.cart', compact('items'));
+    }
+
+    public function checkout($id){
+        $items = Prueba::find($id);
+        return view('web.checkout', compact('items'));
     }
 
     public function contact(){

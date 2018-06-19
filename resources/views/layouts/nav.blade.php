@@ -38,7 +38,6 @@
                                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                  Ingrese</a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                   <a class="nav-link" href="{{ url('/login') }}"> Login</a>
                                                     @if (Auth::guest())
                                                     <a class="nav-link" href="{{ url('/natural/login') }}">Login Natural</a>
                                                     <a class="nav-link" href="{{ url('/juridico/login') }}">Login Juridico</a>
@@ -49,7 +48,6 @@
                                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                  Registrese</a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    <a class="nav-link" href="{{ url('/register') }}"> Register</a>
                                                     <a class="nav-link" href="{{ url('/natural/register') }}">Registro Natural</a>
                                                     <a class="nav-link" href="{{ url('/juridico/register') }}">Registro Juridico</a>
                                                 </div>

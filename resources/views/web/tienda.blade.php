@@ -62,7 +62,7 @@
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                 </div>
-                                <h5 class="price">${{ $producto->precio}}</h5>
+                                <h5 class="price">Bs.S {{ $producto->precio}}</h5>
                                 <p class="text-justify">{{ $producto->descripcion }}</p>
                             </div>
                         <!-- Add to Cart Form -->
@@ -72,7 +72,9 @@
                                 <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             </div>
-                            <button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>
+
+                            <a href="{{ route('cart', $producto->id) }}" name="addtocart" value="1" class="cart-submit py-3 px-3">Add to cart {{ $producto->id }}</a>
+
                         </form>
 
                             <div class="share_wf mt-30">

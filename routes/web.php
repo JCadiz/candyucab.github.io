@@ -16,6 +16,9 @@ Route::get('/tienda','FrontController@tienda')->name('tienda');
 Route::get('/promociones','FrontController@promociones')->name('promociones');
 Route::get('/about','FrontController@about')->name('about');
 Route::get('/contact','FrontController@contact')->name('contact');
+Route::get('/cart/{id}', 'FrontController@cart')->name('cart');
+Route::get('/checkout/{id}', 'FrontController@checkout')->name('checkout');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
