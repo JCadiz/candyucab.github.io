@@ -23,7 +23,7 @@ class CreateJuridicosTable extends Migration
             $table->string('denominacion');
             $table->string('razonSocial');
             $table->integer('fk_lugar')->unsigned();
-            $table->foreign('fk_lugar')->references('id')->on('lugar');
+            $table->foreign('fk_lugar')->references('id')->on('lugars');
             $table->rememberToken();
             $table->timestamps();
         });

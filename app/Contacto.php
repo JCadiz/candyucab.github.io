@@ -17,4 +17,9 @@ class Contacto extends Model
     public function lugar(){
          return $this->belongsTo('App\Lugar', 'fk_lugar', 'id');
     }
+
+    public function telefono()
+    {
+        return $this->hasOne('App\Telefono', 'fk_contacto', 'id');
+    }
 }

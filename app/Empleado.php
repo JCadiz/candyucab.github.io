@@ -13,4 +13,14 @@ class Empleado extends Model
     public function tienda(){
          return $this->belongsTo('App\Tienda', 'fk_tienda', 'id');
     }
+
+    public function asistencia()
+    {
+        return $this->hasMany('App\Asistencia', 'fk_empleado', 'id');
+    }
+
+    public function beneficio()
+    {
+        return $this->hasMany('App\Beneficio', 'fk_empleado', 'id');
+    }
 }

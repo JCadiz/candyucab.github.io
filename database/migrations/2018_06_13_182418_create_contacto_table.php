@@ -21,7 +21,7 @@ class CreateContactoTable extends Migration
             $table->integer('fk_juridico')->unsigned();
             $table->foreign('fk_juridico')->references('id')->on('juridico');
             $table->integer('fk_lugar')->unsigned();
-            $table->foreign('fk_lugar')->references('id')->on('lugar');
+            $table->foreign('fk_lugar')->references('id')->on('lugars');
             $table->timestamps();
         });
     }

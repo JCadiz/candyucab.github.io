@@ -43,4 +43,24 @@ class Natural extends Authenticatable
     {
         return $this->belongsTo('App\Lugar', 'fk_lugar', 'id');
     }
+
+    public function facturacion()
+    {
+        return $this->hasMany('App\Facturacion', 'fk_naturals', 'id');
+    }
+
+    public function historialcompra()
+    {
+        return $this->hasMany('App\Historialcompra', 'historialcompra', 'id');
+    }
+
+    public function telefono()
+    {
+        return $this->hasOne('App\Telefono', 'fk_naturals', 'id');
+    }
+
+    public function candypoint()
+    {
+        return $this->hasMany('App\CandyPoint', 'fk_naturals', 'id');
+    }
 }

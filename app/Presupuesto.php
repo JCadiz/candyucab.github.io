@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Telefono extends Model
+class Presupuesto extends Model
 {
     protected $fillable = [
-        'numero', 'fk_naturals', 'fk_juridicos', 'fk_contacto'
+        'fk_naturals', 'fk_juridicos'
     ];
 
     public function natural()
@@ -20,8 +20,4 @@ class Telefono extends Model
         return $this->belongsTo('App\Juridico', 'fk_juridicos', 'id');
     }
 
-    public function contacto()
-    {
-        return $this->belongsTo('App\Contacto', 'fk_contacto', 'id');
-    }
 }

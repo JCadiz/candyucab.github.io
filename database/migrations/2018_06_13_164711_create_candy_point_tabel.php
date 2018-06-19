@@ -17,10 +17,10 @@ class CreateCandyPointTabel extends Migration
             $table->increments('id');
             $table->integer('catidad');
             $table->integer('valorActual');
-            $table->integer('fk_natural')->unsigned();
-            $table->foreign('fk_natural')->references('id')->on('natural');
-            $table->integer('fk_juridico')->unsigned();
-            $table->foreign('fk_juridico')->references('id')->on('juridico');
+            $table->integer('fk_naturals')->unsigned();
+            $table->foreign('fk_naturals')->references('id')->on('naturals');
+            $table->integer('fk_juridicos')->unsigned();
+            $table->foreign('fk_juridicos')->references('id')->on('juridicos');
             $table->timestamps();
         });
     }

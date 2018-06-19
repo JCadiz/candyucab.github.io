@@ -4,11 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Telefono extends Model
+class Historialcompra extends Model
 {
     protected $fillable = [
-        'numero', 'fk_naturals', 'fk_juridicos', 'fk_contacto'
+        'fechacompra', 'producto', 'fk_naturals', 'fk_juridicos'
     ];
+
+    public function facturacion()
+    {
+        return $this->hasOne('App\Facturacion', 'fk_historialcompra', 'id');
+    }
 
     public function natural()
     {
@@ -20,8 +25,4 @@ class Telefono extends Model
         return $this->belongsTo('App\Juridico', 'fk_juridicos', 'id');
     }
 
-    public function contacto()
-    {
-        return $this->belongsTo('App\Contacto', 'fk_contacto', 'id');
-    }
 }

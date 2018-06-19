@@ -24,7 +24,7 @@ class CreateNaturalsTable extends Migration
             $table->string('Papellido');
             $table->string('Sapellido');
             $table->integer('fk_lugar')->unsigned();
-            $table->foreign('fk_lugar')->references('id')->on('lugar');
+            $table->foreign('fk_lugar')->references('id')->on('lugars');
             $table->rememberToken();
             $table->timestamps();
         });

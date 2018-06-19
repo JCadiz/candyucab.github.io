@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLugarsTable extends Migration
+class CreatePasilloTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateLugarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lugars', function (Blueprint $table) {
-            $table->integer('id');
-            $table->string('nombre');
-            $table->string('tipo');
-            $table->integer('fk_lugar')->unsigned()->nullable();
-            $table->foreign('fk_lugar')->references('id')->on('lugars');
+        Schema::create('pasillo', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('cantidad');
+            $table->integer('fk_tienda')->unsigned();
+            $table->foreign('fk_tienda')->references('id')->on('tienda');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateLugarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lugars');
+        Schema::dropIfExists('pasillo');
     }
 }

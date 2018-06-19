@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLugarsTable extends Migration
+class CreateBeneficioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateLugarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lugars', function (Blueprint $table) {
-            $table->integer('id');
+        Schema::create('beneficio', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('nombre');
+            $table->text('descripcion');
             $table->string('tipo');
-            $table->integer('fk_lugar')->unsigned()->nullable();
-            $table->foreign('fk_lugar')->references('id')->on('lugars');
+            $table->integer('fk_empleado')->unsigned();
+            $table->foreign('fk_empleado')->references('id')->on('empleado');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateLugarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lugars');
+        Schema::dropIfExists('beneficio');
     }
 }

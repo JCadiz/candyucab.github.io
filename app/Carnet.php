@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Carnet extends Model
 {
     protected $fillable = [
-        'serial', 'fk_natural','fk_juridico','fk_tienda'
+        'serial', 'fk_naturals','fk_juridicos','fk_tienda'
     ];
 
     public function natural(){
-         return $this->belongsTo('App\Natural', 'fk_natural', 'id');
+         return $this->belongsTo('App\Natural', 'fk_naturals', 'id');
     }
 
     public function juridico(){
-         return $this->belongsTo('App\juridico', 'fk_juridico', 'id');
+         return $this->belongsTo('App\Juridico', 'fk_juridicos', 'id');
     }
 
     public function tienda(){

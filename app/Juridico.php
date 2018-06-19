@@ -42,4 +42,29 @@ class Juridico extends Authenticatable
     public function lugar(){
         return $this->belongsTo('App\Lugar', 'fk_lugar', 'id');
     }
+
+    public function facturacion()
+    {
+        return $this->hasMany('App\Facturacion', 'fk_juridicos', 'id');
+    }
+
+    public function historialcompra()
+    {
+        return $this->hasMany('App\Historialcompra', 'fk_historialcompra', 'id');
+    }
+
+    public function telefono()
+    {
+        return $this->hasOne('App\Telefono', 'fk_juridico', 'id');
+    }
+
+    public function contacto()
+    {
+        return $this->hasMany('App\Contacto', 'fk_juridico', 'id');
+    }
+
+    public function candypoint()
+    {
+        return $this->hasMany('App\CandyPoint', 'fk_juridicos', 'id');
+    }
 }
