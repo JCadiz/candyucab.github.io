@@ -17,9 +17,9 @@ class CreateCandyPointTabel extends Migration
             $table->increments('id');
             $table->integer('catidad');
             $table->integer('valorActual');
-            $table->integer('fk_naturals')->unsigned();
+            $table->integer('fk_naturals')->unsigned()->nullable();
             $table->foreign('fk_naturals')->references('id')->on('naturals');
-            $table->integer('fk_juridicos')->unsigned();
+            $table->integer('fk_juridicos')->unsigned()->nullable();
             $table->foreign('fk_juridicos')->references('id')->on('juridicos');
             $table->timestamps();
         });

@@ -58,7 +58,7 @@ class OfertaController extends Controller
         ]);
 
         //return redirect('/users');
-        return redirect()->route('oferta2')->with('success', 'Oferta Creado');
+        return redirect()->route('oferta2')->with('success', 'Oferta Creada');
     }
 
     /**
@@ -111,7 +111,7 @@ class OfertaController extends Controller
             'fechaFin' => $request->input('fechaFin')
         ]);
 
-        return redirect()->route('oferta2')->with('success', 'Oferta Actualizado');
+        return redirect()->route('oferta2')->with('success', 'Oferta Actualizada');
     }
 
     /**
@@ -125,7 +125,7 @@ class OfertaController extends Controller
         try {
             Oferta::destroy($id);
         } catch (Exception $e) {
-            return redirect()->route('oferta2')->with('warning', 'No se puede eliminar dicho Oferta ' . $id);
+            return redirect()->route('oferta2')->with('warning', 'No se puede eliminar dicha Oferta ' . $id);
         }
         //$user =  User::find($id);
         //$user->delete();

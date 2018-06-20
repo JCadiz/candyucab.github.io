@@ -46,13 +46,13 @@ class TiendaController extends Controller
         $this->validate($request, [
             'nombre' => 'required',
             'tipo' => 'required',
-            'fk_lugar' => 'required'
+
         ]);
 
         Tienda::create([
             'nombre' => $request->input('nombre'),
             'tipo' => $request->input('tipo'),
-            'fk_lugar' => $request->input('fk_lugar')
+
         ]);
 
         //return redirect('/users');
@@ -96,7 +96,7 @@ class TiendaController extends Controller
         $this->validate($request, [
             'nombre' => 'required',
             'tipo' => 'required',
-            'fk_lugar' => 'required'
+
         ]);
 
         $tienda = Tienda::find($id);
@@ -104,7 +104,6 @@ class TiendaController extends Controller
         $tienda->update([
             'nombre' => $request->input('nombre'),
             'tipo' => $request->input('tipo'),
-            'fk_lugar' => $request->input('fk_lugar')
         ]);
 
         return redirect()->route('tienda2')->with('success', 'Tienda Actualizado');

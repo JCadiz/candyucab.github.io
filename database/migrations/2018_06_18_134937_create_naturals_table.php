@@ -23,7 +23,7 @@ class CreateNaturalsTable extends Migration
             $table->string('Snombre');
             $table->string('Papellido');
             $table->string('Sapellido');
-            $table->integer('fk_lugar')->unsigned();
+            $table->integer('fk_lugar')->unsigned()->nullable();
             $table->foreign('fk_lugar')->references('id')->on('lugars');
             $table->rememberToken();
             $table->timestamps();

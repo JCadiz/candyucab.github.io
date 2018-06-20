@@ -19,7 +19,8 @@ class JuridicoController extends Controller
      */
     public function index()
     {
-        //
+        $juridicos = Juridico::paginate(6);
+        return view('admin.juridico.index', compact('juridicos'));
     }
 
     /**
@@ -29,7 +30,8 @@ class JuridicoController extends Controller
      */
     public function create()
     {
-        //
+        $juridico = new Juridico();
+        return view('admin.juridico.create', compact('juridico'));
     }
 
     /**
@@ -40,7 +42,31 @@ class JuridicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'rif' => 'required',
+            'paginaWeb' => 'required',
+            'capital' => 'required',
+            'denominacion' => 'required',
+            'razonSocial' => 'required',
+
+        ]);
+
+        Juridico::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'rif' => $request->input('rif'),
+            'paginaWeb' => $request->input('paginaWeb'),
+            'capital' => $request->input('capital'),
+            'denominacion' => $request->input('denominacion'),
+            'razonSocial' => $request->input('razonSocial'),
+        ]);
+
+        //return redirect('/users');
+        return redirect()->route('juridico')->with('success', 'cliente Creado');
     }
 
     /**
@@ -51,7 +77,8 @@ class JuridicoController extends Controller
      */
     public function show($id)
     {
-        //
+        $juridico = Juridico::find($id);
+        return view('admin.juridico.show', compact('juridico'));
     }
 
     /**
@@ -62,7 +89,8 @@ class JuridicoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $juridico = Juridico::find($id);
+        return view('admin.juridico.edit', compact('juridico'));
     }
 
     /**
@@ -74,7 +102,32 @@ class JuridicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'rif' => 'required',
+            'paginaWeb' => 'required',
+            'capital' => 'required',
+            'denominacion' => 'required',
+            'razonSocial' => 'required',
+            'Sapellido' => 'required',
+        ]);
+
+        $juridico = Juridico::find($id);
+
+        $juridico->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'rif' => $request->input('rif'),
+            'paginaWeb' => $request->input('paginaWeb'),
+            'capital' => $request->input('capital'),
+            'denominacion' => $request->input('denominacion'),
+            'razonSocial' => $request->input('razonSocial'),
+        ]);
+
+        return redirect()->route('juridico')->with('success', 'Cliente Juridico Actualizado');
     }
 
     /**
@@ -85,6 +138,13 @@ class JuridicoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Juridico::destroy($id);
+        } catch (Exception $e) {
+            return redirect()->route('juridico')->with('warning', 'No se puede eliminar dicho Cliente Juridico ' . $id);
+        }
+        //$user =  User::find($id);
+        //$user->delete();
+        return redirect()->route('juridico')->with('success', 'Cliente Juridico Eliminado');
     }
 }

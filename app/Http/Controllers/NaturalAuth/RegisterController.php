@@ -9,6 +9,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -22,7 +23,6 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
     use RegistersUsers;
 
     /**
@@ -75,9 +75,11 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return Natural
+     * @return Lugar
+     * @return Telefono
      */
     protected function create(array $data)
-    {
+    {   /*
         return Natural::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -88,17 +90,53 @@ class RegisterController extends Controller
             'Snombre' => $data['Snombre'],
             'Papellido' => $data['Papellido'],
             'Sapellido' => $data['Sapellido'],
-        ]);
+        ]); */
 
-        return Lugar::create([
-            'estado' =>$data['estado'],
-            'municipio' => $data['municipio'],
-            'parroquia' => $data['parroquia'],
-        ]);
+            DB::transaction(function() use ($data){
+            $natural = Natural::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'rif' => $data['rif'],
+                'cedula' => $data['cedula'],
+                'Pnombre' => $data['Pnombre'],
+                'Snombre' => $data['Snombre'],
+                'Papellido' => $data['Papellido'],
+                'Sapellido' => $data['Sapellido'],
+            ]);
 
-        return Telefono::create([
-            'numero'=> $data['numero'],
-        ]);
+            Telefono::create([
+                'numero' => $data['numero'],
+                'fk_naturals' => $natural->id,
+            ]);
+
+            $i = 0;
+            while ($i < 3) {
+                if ($i == 0) {
+                    Lugar::create([
+                        'nombre' => $data['estado'],
+                        'tipo' => 'Estado',
+                        'fk_lugar' => $natural->id,
+                    ]);
+                } else if ($i == 1) {
+                    Lugar::create([
+                        'nombre' => $data['municipio'],
+                        'tipo' => 'Municipio',
+                        'fk_lugar' => $natural->id,
+                    ]);
+                } else {
+                    Lugar::create([
+                        'nombre' => $data['parroquia'],
+                        'tipo' => 'Parroquia',
+                        'fk_lugar' => $natural->id,
+                    ]);
+                }
+            }
+            });
+
+
+       //  return redirect()->route('natural.home');
+
     }
 
     /**

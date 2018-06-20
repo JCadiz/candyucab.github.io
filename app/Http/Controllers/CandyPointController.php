@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Exception;
 use App\CandyPoint;
 
+
 class CandyPointController extends Controller
 {
 
@@ -46,15 +47,11 @@ class CandyPointController extends Controller
         $this->validate($request, [
             'cantidad' => 'required',
             'valorActual' => 'required',
-            'imagen' => 'required',
-            'precio' => 'required'
         ]);
 
         CandyPoint::create([
             'cantidad' => $request->input('cantidad'),
             'valorActual' => $request->input('valorActual'),
-            'fk_natural' => $request->input('fk_natural'),
-            'fk_juridico' => $request->input('fk_juridico')
         ]);
 
         //return redirect('/users');
@@ -98,8 +95,6 @@ class CandyPointController extends Controller
         $this->validate($request, [
             'cantidad' => 'required',
             'valorActual' => 'required',
-            'imagen' => 'required',
-            'precio' => 'required'
         ]);
 
         $candy = CandyPoint::find($id);
@@ -107,8 +102,6 @@ class CandyPointController extends Controller
         $candy->update([
             'cantidad' => $request->input('cantidad'),
             'valorActual' => $request->input('valorActual'),
-            'fk_natural' => $request->input('fk_natural'),
-            'fk_juridico' => $request->input('fk_juridico')
         ]);
 
         return redirect()->route('candy2')->with('success', 'CandyPoints Actualizados');

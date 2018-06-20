@@ -44,19 +44,27 @@ class NaturalController extends Controller
     {
 
         $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
             'rif' => 'required',
-            'descripcion' => 'required',
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'fk_lugar' => 'required'
+            'cedula' => 'required',
+            'Pnombre' => 'required',
+            'Snombre' => 'required',
+            'Papellido' => 'required',
+            'Sapellido' => 'required',
         ]);
 
         Natural::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
             'rif' => $request->input('rif'),
             'cedula' => $request->input('cedula'),
-            'nombre' => $request->input('nombre'),
-            'apellido' => $request->input('apellido'),
-            'fk_lugar' => $request->input('fk_lugar'),
+            'Pnombre' => $request->input('Pnombre'),
+            'Snombre' => $request->input('Snombre'),
+            'Papellido' => $request->input('Papellido'),
+            'Sapellido' => $request->input('Sapellido'),
         ]);
 
         //return redirect('/users');
@@ -71,7 +79,8 @@ class NaturalController extends Controller
      */
     public function show($id)
     {
-        //
+        $natural = Natural::find($id);
+        return view('admin.natural.show', compact('natural'));
     }
 
     /**
@@ -82,7 +91,8 @@ class NaturalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $natural = Natural::find($id);
+        return view('admin.natural.edit', compact('natural'));
     }
 
     /**
@@ -94,7 +104,33 @@ class NaturalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'rif' => 'required',
+            'cedula' => 'required',
+            'Pnombre' => 'required',
+            'Snombre' => 'required',
+            'Papellido' => 'required',
+            'Sapellido' => 'required',
+        ]);
+
+        $natural = Juridico::find($id);
+
+        $natural->uptade([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'rif' => $request->input('rif'),
+            'cedula' => $request->input('cedula'),
+            'Pnombre' => $request->input('Pnombre'),
+            'Snombre' => $request->input('Snombre'),
+            'Papellido' => $request->input('Papellido'),
+            'Sapellido' => $request->input('Sapellido'),
+        ]);
+
+        return redirect()->route('natural')->with('success', 'Cliente Natural Actualizado');
     }
 
     /**
@@ -105,6 +141,13 @@ class NaturalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Natural::destroy($id);
+        } catch (Exception $e) {
+            return redirect()->route('natural')->with('warning', 'No se puede eliminar dicho Cliente Natural ' . $id);
+        }
+        //$user =  User::find($id);
+        //$user->delete();
+        return redirect()->route('natural')->with('success', 'Cliente Natural Eliminado');
     }
 }

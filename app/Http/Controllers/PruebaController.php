@@ -19,8 +19,8 @@ class PruebaController extends Controller
      */
     public function index()
     {
-        $tiendas = Prueba::paginate(6);
-        return view('admin.prueba.index', compact('tiendas'));
+        $pruebas = Prueba::paginate(6);
+        return view('admin.prueba.index', compact('pruebas'));
     }
 
     /**
@@ -30,8 +30,8 @@ class PruebaController extends Controller
      */
     public function create()
     {
-        $tienda = new Prueba();
-        return view('admin.prueba.create', compact('tienda'));
+        $prueba = new Prueba();
+        return view('admin.prueba.create', compact('prueba'));
     }
 
     /**
@@ -78,8 +78,8 @@ class PruebaController extends Controller
      */
     public function show($id)
     {
-        $tienda = Prueba::find($id);
-        return view('admin.prueba.show', compact('tienda'));
+        $prueba = Prueba::find($id);
+        return view('admin.prueba.show', compact('prueba'));
     }
 
     /**
@@ -90,8 +90,8 @@ class PruebaController extends Controller
      */
     public function edit($id)
     {
-        $tienda = Prueba::find($id);
-        return view('admin.prueba.edit', compact('tienda'));
+        $prueba = Prueba::find($id);
+        return view('admin.prueba.edit', compact('prueba'));
     }
 
     /**
@@ -120,9 +120,9 @@ class PruebaController extends Controller
             'precio' => 'required'
         ]);
 
-        $tienda = Prueba::find($id);
+        $prueba = Prueba::find($id);
 
-        $tienda->update([
+        $prueba->update([
             'nombre' => $request->input('nombre'),
             'descripcion' => $request->input('descripcion'),
             'imagen' => $request->input('imagen'),

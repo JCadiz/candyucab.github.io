@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tienda extends Model
 {
     protected $fillable = [
-        'nombre', 'tipo','fk_lugar'
+        'nombre', 'tipo','fk_lugar','fk_empleado'
     ];
 
     public function lugar(){
